@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Career Compass</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <section class="form-wrapper animate-slidein">
+    <div class="form-card">
+      <h2>Create Your Account</h2>
+      <form action="/register" method="POST" class="form-box">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Choose a strong password" required />
+        </div>
+
+        <div class="form-group">
+          <label for="school">School / College</label>
+          <input type="text" id="school" name="school" placeholder="Your institution name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="interests">Interests (optional)</label>
+          <input type="text" id="interests" name="interests" placeholder="e.g., Coding, Design, Business" />
+        </div>
+
+        <button type="submit" class="btn primary full-width">Register</button>
+      </form>
+
+      <p class="form-footer">Already have an account? <a href="/login">Login here</a></p>
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile Settings - Career Compass</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .form-container {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #fefefe;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.7s ease;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #222;
+    }
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+
+    .btn {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      font-weight: 600;
+    }
+
+    .actions {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Profile Settings</h2>
+    <form action="/profile-settings" method="POST" class="form-box">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" value="{{ user.name }}" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" value="{{ user.email }}" required />
+
+      <label for="password">New Password</label>
+      <input type="password" id="password" name="password" placeholder="Leave blank to keep current" />
+
+      <label for="interests">Interests</label>
+      <input type="text" id="interests" name="interests" value="{{ user.interests }}" />
+
+      <label for="skills">Skills</label>
+      <input type="text" id="skills" name="skills" value="{{ user.skills }}" />
+
+      <label for="recommended">Preferred Career</label>
+      <input type="text" id="recommended" name="recommended" value="{{ user.recommended }}" />
+
+      <button type="submit" class="btn">Save Changes</button>
+    </form>
+
+    <div class="actions">
+      <a href="/dashboard" class="btn secondary">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

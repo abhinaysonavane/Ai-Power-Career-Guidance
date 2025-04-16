@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ai Power Career Guidance - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- ✅ Navigation Bar -->
+  <nav class="navbar">
+    <a href="/" class="logo">Ai Power Career Guidance</a>
+    <ul>
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      {% if session.get('user_id') %}
+        <li><a href="/logout">Logout</a></li>
+      {% else %}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Sign Up</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+<!-- ✅ Hero Section -->
+<header class="hero-section">
+  <div class="container flex hero-wrapper">
+    <div class="hero-text animate-fadein">
+      <h1>Find Your Path with <span class="highlight">AI-Powered Career Guidance</span></h1>
+      <p>Your personalized assistant for career planning based on your strengths and interests.</p>
+      <div class="buttons">
+        <a href="/register" class="btn primary">Get Started</a>
+        <a href="/login" class="btn secondary">Login</a>
+      </div>
+    </div>
+    <div class="hero-image animate-slidein">
+      <img src="{{ url_for('static', filename='images/hero-career.png') }}" alt="Career Path Illustration" />
+    </div>
+  </div>
+</header> 
+
+
+  <!-- ✅ About Section -->
+  <section id="about" class="info-section fade-up">
+    <div class="container">
+      <h2 class="section-title">What We Do</h2>
+      <p>We help students discover the right career path based on their skills, interests, and goals using smart AI-powered recommendations and resources.</p>
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script> 
+
+</body>
+
+</html>

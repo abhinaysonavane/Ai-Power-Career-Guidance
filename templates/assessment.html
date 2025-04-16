@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Assessment - AI Power Career Guidance</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="form-container animate-slidein">
+    <h2>Career Assessment</h2>
+    <form action="/assessment" method="POST" class="form-box">
+      
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="13" max="100" required />
+
+      <label for="education">Education</label>
+      <select id="education" name="education" required>
+        <option value="" disabled selected>Select your education</option>
+        <option value="Bachelor's">Bachelor's</option>
+        <option value="Master's">Master's</option>
+        <option value="PhD">PhD</option>
+      </select>
+
+      <label for="cgpa">CGPA</label>
+      <input type="number" step="0.01" min="0" max="10" id="cgpa" name="cgpa" required />
+
+      <label for="skills">Skills (select or type)</label>
+      <input type="text" id="skills" name="skills" list="skills-list" placeholder="e.g., Python, UI/UX" />
+      <datalist id="skills-list">
+        {% for skill in ['.NET','AI','Adobe Creative Suite','Agile','Python','Cloud Computing'] %}
+        <option value="{{ skill }}">
+        {% endfor %}
+      </datalist>
+
+      <label for="interests">Interests</label>
+      <input type="text" id="interests" name="interests" list="interests-list" placeholder="e.g., Technology, Business" />
+      <datalist id="interests-list">
+        {% for interest in ['AI','Business','Arts','Analytics','Content','Healthcare'] %}
+        <option value="{{ interest }}">
+        {% endfor %}
+      </datalist>
+
+      <label for="recommended">Preferred Career (optional)</label>
+      <input type="text" id="recommended" name="recommended" list="career-list" placeholder="e.g., Data Scientist" />
+      <datalist id="career-list">
+        {% for career in ['AI Researcher','Backend Developer','UX Designer','Project Manager','Software Engineer'] %}
+        <option value="{{ career }}">
+        {% endfor %}
+      </datalist>
+
+      <button type="submit" class="btn">Submit Assessment</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

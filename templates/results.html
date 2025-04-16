@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Career Recommendations - AI Power Career Guidance</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .results-container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .results-container h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .career-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .career-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .career-card h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #2a2a2a;
+    }
+
+    .career-card p {
+      margin: 0.5rem 0;
+      color: #555;
+    }
+
+    .career-card .btn.small {
+      margin-top: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="results-container animate-fadein">
+    <h2>Your Top Career Matches</h2>
+
+    <div class="career-grid">
+      {% for career in recommendations %}
+      <div class="career-card">
+        <h3>{{ career.name }}</h3>
+        <p><strong>Confidence:</strong> {{ career.score }}%</p>
+        <p>{{ career.description }}</p>
+        <a href="/explore?career={{ career.name }}" class="btn small">Explore Career</a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="actions">
+      <a href="/dashboard" class="btn secondary">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

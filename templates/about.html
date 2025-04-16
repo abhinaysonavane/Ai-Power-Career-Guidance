@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - AI Power Career Guidance</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .about-section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      animation: fadeIn 0.7s ease;
+    }
+
+    .about-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    .about-content p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .team-section {
+      margin-top: 3rem;
+    }
+
+    .team-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+      text-align: center;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .team-card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .team-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .team-card h4 {
+      margin: 0.5rem 0 0.25rem;
+      font-size: 1.2rem;
+      color: #222;
+    }
+
+    .team-card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <section class="about-section">
+    <div class="about-content">
+      <h2>About AI Power Career Guidance</h2>
+      <p>
+        AI Power Career Guidance is a student-focused platform that helps you discover the right career path based on your skills, interests, CGPA, and more.
+      </p>
+      <p>
+        Our mission is to empower the next generation with clarity and confidence by providing personalized, intelligent career insights.
+      </p>
+      <p>
+        <strong>Meet the Founder:</strong> I’m <strong>Abhinay Sonavane</strong>, a Computer Science student and mentor passionate about helping students unlock their potential and succeed in their chosen career paths.
+      </p>
+    </div>
+
+    <div class="team-section">
+      <h3>Meet the Team</h3>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="{{ url_for('static', filename='images/profile1.png') }}" alt="Abhinay Sonavane">
+          <h4>Abhinay Sonavane</h4>
+          <p>Founder & Career Mentor</p>
+        </div>
+        <div class="team-card">
+          <img src="{{ url_for('static', filename='images/profile2.png') }}" alt="Nikhil Khosare">
+          <h4>Nikhil Khosare</h4>
+          <p>Frontend Developer</p>
+        </div>
+        <div class="team-card">
+          <img src="{{ url_for('static', filename='images/profile3.png') }}" alt="Sandip Randive">
+          <h4>Sandip Randive</h4>
+          <p>Project Lead</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
